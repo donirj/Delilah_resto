@@ -1,0 +1,543 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "My User Project CRUD",
+      "description": "My User Project Application API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3333",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Usuarios",
+        "description": "Endpoints relacionados al usuario"
+      }, 
+       {
+        "name": "Productos",
+        "description": "Endpoints relacionados a productos"
+      },
+      {
+        "name": "Pedidos",
+        "description": "Endpoints relacionados a pedidos"
+      } 
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/add/user": {
+        "post": {
+          "tags": [
+            "Usuarios"
+          ],
+          "description": "Endpoint para crear el usuario",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Usuario que queremos crear",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      },
+
+      "/(nombre del endpoint)": {
+        "post (tipo de metodo post/get)": {
+          "tags (etiqueta a la cual hace referencia el endpoint)": [
+            "Usuarios"
+          ],
+          "description (que hace el endpoint)": "Delete an user in the system",
+          "parameters": [
+            {
+              "name (nombre que yo le doy a los datos que llegan)": "Paramatros de body",
+              "in (si llega por el header, body, o query, en relación al metodo, si es get es query, si es post es body)": "body",
+              "description (lo que se va recibir, descripcion)": "Datos para ingresar",
+              "schema (voceto de lo que va recibir el query o body)": {
+                "$ref (variable de referencia, no modificar)": "#/definitions/userlogin"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "usuario ingresado",
+              "schema": {
+                "$ref": "#/definitions/userlogin"
+              }
+            }
+          }
+        } 
+      },
+      
+      "/login": {
+        "post": {
+          "tags": [
+            "Usuarios"
+          ],
+          "description": "ingresar al usuario",
+          "parameters": [
+            {
+              "name": "Paramatros de body",
+              "in": "body",
+              "description": "Datos para ingresar",
+              "schema": {
+                "$ref": "#/definitions/userlogin"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "usuario ingresado",
+              "schema": {
+                "$ref": "#/definitions/userlogin"
+              }
+            }
+          }
+        } 
+      },
+
+      "/ver/usuarios": {
+        "get": {
+          "tags": [
+            "Usuarios"
+          ],
+          "description": "ver los usuarios",
+          "parameters": [
+            {
+              "name": "Parametros de body",
+              "in": "body",
+              "description": "ver usuarios disponibles",
+              "schema": {
+                "$ref": "#/definitions/userlogin"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "usuario visto",
+              "schema": {
+                "$ref": "#/definitions/userlogin"
+              }
+            }
+          }
+        } 
+      },
+      
+      "/agregarproductos": {
+        "post": {
+          "tags": [
+            "Productos"
+          ],
+          "description": "endpoint para agregar productos",
+          "parameters": [
+            {
+              "name": "agregar productos",
+              "in": "body",
+              "description": "productos a agregar en el pedido",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "producto ha sido agregado",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          }
+        }
+      },
+
+      "/borrarproducto": {
+        "delete": {
+          "tags": [
+            "Productos"
+          ],
+          "description": "endpoint para borrar productos",
+          "parameters": [
+            {
+              "name": "borrar productos",
+              "in": "body",
+              "description": "ver productos elegidos para borrar",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "producto ha sido borrado",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          }
+        }
+      },
+
+      "/modificarproducto": {
+        "put": {
+          "tags": [
+            "Productos"
+          ],
+          "description": "endpoint para modificar productos",
+          "parameters": [
+            {
+              "name": "modificar productos",
+              "in": "body",
+              "description": "ver productos elegidos para modificar",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "producto ha sido modificado",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          }
+        }
+      },
+
+      "/actualizarorden": {
+        "put": {
+          "tags": [
+            "Pedidos"
+          ],
+          "description": "endpoint para actualizar orden",
+          "parameters": [
+            {
+              "name": "actualizar orden",
+              "in": "body",
+              "description": "actualizar orden",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "orden ha sido actualizada",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          }
+        }
+      },
+
+      
+      "/crearorden": {
+        "post": {
+          "tags": [
+            "Pedidos"
+          ],
+          "description": "endpoint para crear orden",
+          "parameters": [
+            {
+              "name": "crear orden",
+              "in": "body",
+              "description": "Crear orden",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "orden ha sido creada",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          }
+        }
+      },
+
+      "/cancelarorden": {
+        "delete": {
+          "tags": [
+            "Pedidos"
+          ],
+          "description": "endpoint para cancelar orden",
+          "parameters": [
+            {
+              "name": "cancelar orden",
+              "in": "body",
+              "description": "Cancelar orden",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              } 
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "orden ha sido cancelada",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          }
+        }
+      },
+
+      "/vertodoslospedidoscomoadmin": {
+        "get": {
+          "tags": [
+            "Pedidos"
+          ],
+          "description": "endpoint para ver todas las ordenes como admin",
+          "parameters": [
+            {
+              "name": "ver ordenes como admin",
+              "in": "body",
+              "description": "ver los todos los pedidos como admin",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              } 
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "has visto todos los pedidos como admin",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          }
+        }
+      },
+
+      "/verdetalledepedido": {
+        "get": {
+          "tags": [
+            "Pedidos"
+          ],
+          "description": "endpoint para ver todas las ordenes como admin",
+          "parameters": [
+            {
+              "name": "ver detalles del pedido",
+              "in": "body",
+              "description": "ver los detalles del pedido",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              } 
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "has visto los detalles del pedido",
+              "schema": {
+                "$ref": "#/definitions/Orders"
+              }
+            }
+          }
+        }
+      },
+
+
+      "/verproductos": {
+        "get": {
+          "tags": [
+            "Productos"
+          ],
+          "description": "endpoint para ver productos",
+          "parameters": [
+            {
+              "name": "ver productos",
+              "in": "body",
+              "description": "productos para ver",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          ], 
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "producto visto",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "definitions": {
+      "User": {
+        "properties": {
+        
+          "ID_USUARIO": { 
+            "type": "string"
+          },
+          "NOMBRE": { 
+            "type": "string"
+          },
+          "APELLIDO": { 
+            "type": "string"
+          },
+          "CORREO": { 
+            "type": "string"
+          },
+          "TELEFONO": { 
+            "type": "number"
+          },
+          "DIRECCION": { 
+            "type": "string"
+          },
+          "PASS": { 
+            "type": "string"
+          },
+          "FECHA_RESGITRO": { 
+            "type": "string"
+          },
+          "ID_ROL": { 
+            "type": "string"
+          } 
+        }
+      },
+
+      "userlogin": {
+        "properties": {
+          "ID_USUARIO": {
+            "type": "string"
+          },
+          "PASS": { 
+            "type": "string"
+          },
+          "ADMIN": { 
+            "type": "boolean"
+          }  
+        }
+      },
+
+      "Products": {
+        "properties": {
+          "DESCRIPCIÓN": {
+            "type": "string"
+          },
+          "PRECIO": { 
+            "type": "number"
+          },
+          "ID": { 
+            "type": "number"
+          },
+          "FOTO": { 
+            "type": "string"
+          } 
+        }
+      },
+
+      "Orders": {
+        "properties": {
+          "ID_ESTADO_PEDIDO": {
+            "type": "string"
+          },
+          "HORA_PEDIDO": { 
+            "type": "number"
+          },
+          "ID_PEDIDO": { 
+            "type": "number"
+          },
+          "DESCRIPCIÓN_PEDIDO": { 
+            "type": "string"
+          },
+          "METODO_DE_PAGO": { 
+            "type": "string"
+          },
+          "VALOR_TOTAL": { 
+            "type": "number"
+          },
+          "ID_USUARIO": { 
+            "type": "string"
+          },
+          "ID_FORMAS_PEDIDO": { 
+            "type": "string"
+          },
+          "DIRECCIÓN": { 
+            "type": "string"
+          }
+        }
+      },
+
+      "UserDeleteResponse": {
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "status": {
+            "type" : "number"
+          }
+        }
+      }
+    }
+  }
+
+  
+

@@ -1,0 +1,76 @@
+
+app.post("/login", hhhhhh,(req,res)=>{
+    const {USER_NAME, PASS}=req.body; //destructor
+
+    dataBase.query('select ID,EMAIL from USERS where USER_NAME = "' + USER_NAME + '" && PASS = "' + PASS + '"', { type: dataBase.QueryTypes.SELECT }) 
+    .then((resultado) => {
+     console.log(resultado);
+    });
+    res.json({"status":"ok"}); 
+});
+
+
+app.get("/mostrar", hhhhhh,(req,res)=>{
+   
+    dataBase.query('select * from USERS ', { type: dataBase.QueryTypes.SELECT }) 
+    .then((resultado) => {
+   
+app.get("/mostrar", hhhhhh,(req,res)=>{
+   
+    dataBase.query('select * from USERS ', { type: dataBase.QueryTypes.SELECT }) 
+    .then((resultado) => {
+     console.log(resultado);
+    });
+    res.json({"status":"ok"});
+});
+
+endpoints creados:
+
+USUARIOS:
+add/user 
+login
+ver usuarios
+
+
+
+
+PRODUCTOS:
+ver todos los productos
+ver producto
+agregar productos
+borrar productos
+modificar producto
+
+
+PEDIDOS
+crear pedido nuevo listo
+obtener pedido
+ver detalle de pedido 
+agregar pedido listo 
+ver todos los pedidos como admin listo
+id pedido
+fecha
+
+app.post("/actualizarorden", addUser, (req,res) =>{
+    const {DESCRIPCION, PRECIO, ID, FOTO,}=req.query;
+});
+
+
+update PRODUCTO set Nombre = "' + Nombre + '", Detalle="' + Detalle + '", Img = "' + Img + '", Valor =' + Valor + ' where ID = ' + ID + '', { type: sequelize.QueryTypes.UPDATE })
+
+delete from PRODUCTO where ID = ' + ID + '', { type: sequelize.QueryTypes.Delete })
+
+modificar base desde visual studio: pendiente
+
+revisar con un console.log en cada endpoints
+localhost:puerto/barradeendpoint
+
+GBM 601180400008222194
+
+ El middleware es un validador de datos o de permisos . Si por ejemplo necesitas iniciar
+ sesión .el middleware haría el papel de verificar 
+que si ingreses los campos de usuario y contraseña, que ese usuario
+ si exista y que los datos sean correcto
+se puede usar el mismo middleware para varios endpoints si es adaptado
+
+si el id tiene autoincrement en la tabla, no es necesario poner el id en el endpointo middleware
